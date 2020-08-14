@@ -78,8 +78,13 @@
               your culinary senses!
             </p>
           </div>
-          <div class="col-12 col-sm align-self-center">
+          <div class="col-12 col-sm-3 align-self-center">
             <img src="img/logo.png" class="img-fluid" alt="" />
+          </div>
+          <div class="col-12 col-sm align-self-center">
+            <a class="btn btn-warning btn-block btn-sm" href="#card">
+              Reserve Table
+            </a>
           </div>
         </div>
       </div>
@@ -117,13 +122,24 @@
           <h3>This Month's Promotions</h3>
         </div>
         <div class="col col-sm col-md">
-          <h2>Weekend Grand Buffet</h2>
-          <p>
-            Featuring mouthwatering combinations with a choice of five different
-            salads, six enticing appetizers, six main entrees and five choicest
-            desserts. Free flowing bubbly and soft drinks. All for just $19.99
-            per person
-          </p>
+          <div class="media">
+            <div class="media-body">
+              <h2 class="mt-0">
+                Weekend Grand Buffet <span class="badge badge-danger">NEW</span>
+              </h2>
+              <p class="d-none d-sm-block">
+                Featuring mouthwatering combinations with a choice of five
+                different salads, six enticing appetizers, six main entrees and
+                five choicest desserts. Free flowing bubbly and soft drinks. All
+                for just $19.99 per person
+              </p>
+            </div>
+            <img
+              class="d-flex mr-3 img-thumbnail align-self-center"
+              src="img/buffet.png"
+              alt="Buffet"
+            />
+          </div>
         </div>
       </div>
 
@@ -147,6 +163,119 @@
                 world, he specializes in creating mouthwatering Indo-Italian
                 fusion experiences.
               </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row row-content">
+        <div class="col-12 col-sm-8 mx-auto">
+          <div class="card" id="card">
+            <h3 class="card-header bg-warning text-white">
+              Reserve a Table
+            </h3>
+            <div class="card-body">
+              <form action="">
+                <div class="form-group">
+                  <label class="col-12 col-sm-2 col-form-label"
+                    >Number of Guests</label
+                  >
+                  <span class="col-12 col-sm-10">
+                    <div class="form-check form-check-inline">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="rd1"
+                        name="numGuest"
+                        value="1"
+                      />
+                      <label for="rd1" class="form-check-label">1</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="rd2"
+                        name="numGuest"
+                        value="2"
+                      />
+                      <label for="rd2" class="form-check-label">2</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="rd3"
+                        name="numGuest"
+                        value="3"
+                      />
+                      <label for="rd3" class="form-check-label">3</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="rd4"
+                        name="numGuest"
+                        value="4"
+                      />
+                      <label for="rd4" class="form-check-label">4</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="rd5"
+                        name="numGuest"
+                        value="5"
+                      />
+                      <label for="rd5" class="form-check-label">5</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                      <input
+                        type="radio"
+                        class="form-check-input"
+                        id="rd6"
+                        name="numGuest"
+                        value="6"
+                      />
+                      <label for="rd6" class="form-check-label">6</label>
+                    </div>
+                  </span>
+                </div>
+
+                <div class="form-group form-inline">
+                  <label for="date" class="col-12 col-sm-2 col-form-label"
+                    >Date and Time</label
+                  >
+                  <div class="col-12 col-sm-4">
+                    <input
+                      type="text"
+                      class="col-auto form-control"
+                      placeholder="Date"
+                      id="date"
+                    />
+                  </div>
+                  <div class="col-12 col-sm-4">
+                    <input
+                      type="text"
+                      class="col-auto form-control"
+                      placeholder="Time"
+                    />
+                  </div>
+                </div>
+                <div class="form-group form-inline">
+                  <div class="col-12">
+                    <button type="button" class="btn btn-primary offset-sm-2">
+                      Reserve
+                    </button>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -212,7 +341,7 @@
                 ><i class="fa fa-youtube fa-lg"></i
               ></a>
               <a class="btn btn-social-icon" href="mailto:"
-                ><i class="fa fa-envelope fa-lg"></i
+                ><i class="fa fa-envelope-o fa-lg"></i
               ></a>
             </div>
           </div>
