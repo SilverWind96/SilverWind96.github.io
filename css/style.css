@@ -14,6 +14,11 @@
   margin: 0px auto;
   padding: 20px 0px;
 }
+.row-content:last-child {
+  margin: 0px auto;
+  padding: 50px 0px;
+  border-bottom: none;
+}
 
 .jumbotron {
   padding: 70px 30px;
