@@ -1,6 +1,6 @@
 .row-header {
   margin: 0px auto;
-  padding: 0px 0px;
+  padding: 0px auto;
 }
 
 .row-content {
@@ -14,16 +14,15 @@
   margin: 0px auto;
   padding: 20px 0px;
 }
-
 .row-content:last-child {
   margin: 0px auto;
-  padding: 0px auto;
+  padding: 50px 0px;
   border-bottom: none;
 }
 
 .jumbotron {
-  margin: 0px auto;
   padding: 70px 30px;
+  margin: 0px auto;
   background: #9575cd;
   color: floralwhite;
 }
@@ -38,15 +37,12 @@ body {
   padding-top: 50px;
   z-index: 0;
 }
-
 .navbar-dark {
   background-color: #512da8;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 .tab-content {
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
@@ -57,10 +53,12 @@ html {
 .carousel {
   background: #512da8;
 }
-.carousel .carousel-item {
+
+.carousel-item {
   height: 300px;
 }
-.carousel .carousel-item img {
+
+.carousel-item img {
   position: absolute;
   top: 0;
   left: 0;
