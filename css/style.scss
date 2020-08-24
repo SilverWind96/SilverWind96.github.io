@@ -76,3 +76,13 @@ html {
   bottom: 0px;
   z-index: 1;
 }
+.modal-header {
+  background-color: $background-dark;
+  button,
+  h3 {
+    color: floralwhite;
+  }
+}
+.modal-body {
+  background-color: $backgound-pale;
+}

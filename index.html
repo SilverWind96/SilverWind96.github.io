@@ -61,9 +61,7 @@
             </li>
           </ul>
           <span class="navbar-text">
-            <a data-toggle="modal" data-target="#loginModal">
-              <span class="fa fa-sign-in"></span> Login
-            </a>
+            <a id="btnSignIn"> <span class="fa fa-sign-in"></span> Login </a>
           </span>
         </div>
       </div>
@@ -73,8 +71,8 @@
       <div class="modal-dialog modal-lg" role="content">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Login</h4>
-            <button type="button" class="close" data-dismiss="modal">
+            <h3 class="modal-title">Login</h3>
+            <button type="button" class="close" id="btnLoginClose">
               &times;
             </button>
           </div>
@@ -114,7 +112,7 @@
                 <button
                   type="button"
                   class="btn btn-secondary btn-sm ml-auto"
-                  data-dismiss="modal"
+                  id="btnLoginCancel"
                 >
                   Cancel
                 </button>
@@ -145,8 +143,7 @@
           <div class="col-12 col-sm align-self-center">
             <a
               class="btn btn-warning btn-block btn-sm nav-link"
-              data-toggle="modal"
-              data-target="#Reserve"
+              id="btnReserve"
             >
               Reserve Table
             </a>
@@ -170,7 +167,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <h3 class="modal-title" id="lblReserve">Reserve a Table</h3>
-            <button type="button" class="close" data-dismiss="modal">
+            <button type="button" class="close" id="btnXReserve">
               &times;
             </button>
           </div>
@@ -297,7 +294,7 @@
                   <button
                     type="button"
                     class="btn btn-secondary offset-sm-2"
-                    data-dismiss="modal"
+                    id="btnCancelReserve"
                   >
                     Cancel
                   </button>
@@ -576,6 +573,24 @@
             $("#carouselButton").children("span").addClass("fa-pause");
             $("#mycarousel").carousel("cycle");
           }
+        });
+        $("#btnReserve").click(function () {
+          $("#Reserve").modal("show");
+        });
+        $("#btnSignIn").click(function () {
+          $("#loginModal").modal("show");
+        });
+        $("#btnLoginClose").click(function () {
+          $("#loginModal").modal("hide");
+        });
+        $("#btnLoginCancel").click(function () {
+          $("#loginModal").modal("hide");
+        });
+        $("#btnCancelReserve").click(function () {
+          $("#Reserve").modal("hide");
+        });
+        $("#btnXReserve").click(function () {
+          $("#Reserve").modal("hide");
         });
       });
     </script>
