@@ -1,7 +1,7 @@
 $lt-gray: #ddd;
-$background-dark: #512da8;
-$background-light: #9575cd;
-$backgound-pale: #d1c4e9;
+$background-dark: #0069c0;
+$background-light: #2196f3;
+$backgound-pale: #e1f5fe;
 
 //Height variables
 $carousel-item-height: 300px;
@@ -45,7 +45,7 @@ body {
   z-index: 0;
 }
 .navbar-dark {
-  background-color: #512da8;
+  background-color: $background-dark;
 }
 html {
   scroll-behavior: smooth;
