@@ -981,39 +981,35 @@ function ShoppingListComponent_div_17_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ShoppingListComponent_div_17_Template_button_click_6_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7); _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](15); return _r2.value = 0; });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](7, " Clear ");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](8, "button", 20);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ShoppingListComponent_div_17_Template_button_click_8_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r7); const ctx_r10 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r10.submit(); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](9, "test");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } }
 const _c0 = function (a0) { return { selected: a0 }; };
 function ShoppingListComponent_div_18_div_1_Template(rf, ctx) { if (rf & 1) {
-    const _r17 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 22);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ShoppingListComponent_div_18_div_1_Template_div_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r17); const ingredient_r14 = ctx.$implicit; const j_r15 = ctx.index; const i_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().index; const ctx_r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](9); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](15); _r1.value = ingredient_r14.ingreName; _r2.value = ingredient_r14.ingreQuantity; ctx_r16.selected.i = i_r12; return ctx_r16.selected.j = j_r15; });
+    const _r16 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("click", function ShoppingListComponent_div_18_div_1_Template_div_click_0_listener() { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r16); const ingredient_r13 = ctx.$implicit; const j_r14 = ctx.index; const i_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().index; const ctx_r15 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](9); const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](15); _r1.value = ingredient_r13.ingreName; _r2.value = ingredient_r13.ingreQuantity; ctx_r15.selected.i = i_r11; return ctx_r15.selected.j = j_r14; });
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "p");
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const ingredient_r14 = ctx.$implicit;
-    const j_r15 = ctx.index;
-    const i_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().index;
-    const ctx_r13 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](3, _c0, ctx_r13.selected.i == i_r12 && ctx_r13.selected.j == j_r15));
+    const ingredient_r13 = ctx.$implicit;
+    const j_r14 = ctx.index;
+    const i_r11 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().index;
+    const ctx_r12 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵclassMap"](_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction1"](3, _c0, ctx_r12.selected.i == i_r11 && ctx_r12.selected.j == j_r14));
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ingredient_r14.ingreName + " (" + ingredient_r14.ingreQuantity + ")");
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](ingredient_r13.ingreName + " (" + ingredient_r13.ingreQuantity + ")");
 } }
 function ShoppingListComponent_div_18_Template(rf, ctx) { if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div");
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ShoppingListComponent_div_18_div_1_Template, 3, 5, "div", 21);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, ShoppingListComponent_div_18_div_1_Template, 3, 5, "div", 20);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
-    const ingredientsArray_r11 = ctx.$implicit;
+    const ingredientsArray_r10 = ctx.$implicit;
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ingredientsArray_r11.ingredients);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ingredientsArray_r10.ingredients);
 } }
 class ShoppingListComponent {
     constructor(recipesService) {
@@ -1023,9 +1019,6 @@ class ShoppingListComponent {
     }
     ngOnInit() {
         this.retrievedArray = this.recipesService.retrieveArray();
-    }
-    submit() {
-        console.log(this.retrievedArray[this.selected.i]);
     }
     delete(i, j) {
         this.recipesService.deleteIngredientByIndex(i, j);
@@ -1037,7 +1030,7 @@ class ShoppingListComponent {
     }
 }
 ShoppingListComponent.ɵfac = function ShoppingListComponent_Factory(t) { return new (t || ShoppingListComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_recipes_array_service__WEBPACK_IMPORTED_MODULE_1__["RecipesArrayService"])); };
-ShoppingListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ShoppingListComponent, selectors: [["app-shopping-list"]], decls: 19, vars: 3, consts: [[1, "container"], ["formShopping", "ngForm"], [1, "row"], [1, "col-8"], [1, "form-group"], ["for", "name"], ["type", "email", "id", "name", "placeholder", "Enter name", "required", "", "ngModel", "", "name", "name", "disabled", "", 1, "form-control"], ["txtName", ""], [1, "col-4"], ["for", "amount"], ["type", "number", "id", "amount", "placeholder", "Amount", "min", "0", "required", "", "ngModel", "", "name", "amount", 1, "form-control"], ["txtAmount", ""], ["class", "row", 4, "ngIf"], [4, "ngFor", "ngForOf"], [1, "col-12"], ["type", "button", "disabled", "", 1, "btn", "btn-success"], ["type", "reset", 1, "btn", "btn-primary"], ["type", "button", 1, "btn", "btn-success", 3, "click"], ["type", "button", 1, "btn", "btn-danger", 3, "click"], ["type", "button", 1, "btn", "btn-primary", 3, "click"], [3, "click"], ["class", "form-control", 3, "class", "click", 4, "ngFor", "ngForOf"], [1, "form-control", 3, "click"]], template: function ShoppingListComponent_Template(rf, ctx) { if (rf & 1) {
+ShoppingListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ShoppingListComponent, selectors: [["app-shopping-list"]], decls: 19, vars: 3, consts: [[1, "container"], ["formShopping", "ngForm"], [1, "row"], [1, "col-8"], [1, "form-group"], ["for", "name"], ["type", "email", "id", "name", "placeholder", "Enter name", "required", "", "ngModel", "", "name", "name", "disabled", "", 1, "form-control"], ["txtName", ""], [1, "col-4"], ["for", "amount"], ["type", "number", "id", "amount", "placeholder", "Amount", "min", "0", "required", "", "ngModel", "", "name", "amount", 1, "form-control"], ["txtAmount", ""], ["class", "row", 4, "ngIf"], [4, "ngFor", "ngForOf"], [1, "col-12"], ["type", "button", "disabled", "", 1, "btn", "btn-success"], ["type", "reset", 1, "btn", "btn-primary"], ["type", "button", 1, "btn", "btn-success", 3, "click"], ["type", "button", 1, "btn", "btn-danger", 3, "click"], ["type", "button", 1, "btn", "btn-primary", 3, "click"], ["class", "form-control", 3, "class", "click", 4, "ngFor", "ngForOf"], [1, "form-control", 3, "click"]], template: function ShoppingListComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "form", null, 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](3, "div", 2);
@@ -1059,7 +1052,7 @@ ShoppingListComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵde
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](16, ShoppingListComponent_div_16_Template, 6, 0, "div", 12);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, ShoppingListComponent_div_17_Template, 10, 0, "div", 12);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](17, ShoppingListComponent_div_17_Template, 8, 0, "div", 12);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](18, ShoppingListComponent_div_18_Template, 2, 1, "div", 13);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
