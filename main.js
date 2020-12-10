@@ -61,11 +61,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const _c0 = function (a0, a1) { return [a0, a1]; };
 function ChartComponent_div_0_Template(rf, ctx) { if (rf & 1) {
-    const _r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 1, 2);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "ngx-charts-line-chart", 3);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("select", function ChartComponent_div_0_Template_ngx_charts_line_chart_select_2_listener($event) { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵrestoreView"](_r3); const ctx_r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](); return ctx_r2.onSelect($event); });
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](2, "ngx-charts-line-chart", 3);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 } if (rf & 2) {
     const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](1);
@@ -78,20 +75,6 @@ class ChartComponent {
         this.chartService = chartService;
         this.init = true;
         this.haveData = false;
-        this.fixedData = [
-            {
-                name: 'Confirmed',
-                series: [],
-            },
-            {
-                name: 'Deaths',
-                series: [],
-            },
-            {
-                name: 'Recovered',
-                series: [],
-            },
-        ];
         this.test = [];
         this.view = [550, 350];
         // options
@@ -122,26 +105,40 @@ class ChartComponent {
         }
     }
     ngOnInit() { }
-    onSelect(event) { }
     testObject(data) {
-        this.fixedData[0].series.length = 0;
-        this.fixedData[1].series.length = 0;
-        this.fixedData[2].series.length = 0;
+        let chartData = [
+            {
+                name: 'Confirmed',
+                series: [],
+            },
+            {
+                name: 'Deaths',
+                series: [],
+            },
+            {
+                name: 'Recovered',
+                series: [],
+            },
+        ];
         for (const i in data) {
             if (data.hasOwnProperty(i)) {
-                if (data[i].confirmed > -1 && data[i].deaths > -1) {
-                    this.fixedData[0].series.push({ name: i, value: data[i].confirmed });
-                    this.fixedData[1].series.push({ name: i, value: data[i].deaths });
+                if (data[i].confirmed > -1) {
+                    chartData[0].series.push({ name: i, value: data[i].confirmed });
                 }
-                this.fixedData[2].series.push({ name: i, value: data[i].recovered });
+                if (data[i].deaths > -1) {
+                    chartData[1].series.push({ name: i, value: data[i].deaths });
+                }
+                if (data[i].recovered > -1) {
+                    chartData[2].series.push({ name: i, value: data[i].recovered });
+                }
             }
         }
         this.haveData = true;
-        this.test = [...this.fixedData];
+        this.test = [...chartData];
     }
 }
 ChartComponent.ɵfac = function ChartComponent_Factory(t) { return new (t || ChartComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_chart_service__WEBPACK_IMPORTED_MODULE_1__["ChartService"])); };
-ChartComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ChartComponent, selectors: [["app-chart"]], decls: 1, vars: 1, consts: [["class", "chartcontainer", 4, "ngIf"], [1, "chartcontainer"], ["chartcontainer", ""], [3, "view", "scheme", "legend", "showXAxisLabel", "showYAxisLabel", "xAxis", "yAxis", "timeline", "results", "legendPosition", "legendTitle", "select"]], template: function ChartComponent_Template(rf, ctx) { if (rf & 1) {
+ChartComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ChartComponent, selectors: [["app-chart"]], decls: 1, vars: 1, consts: [["class", "chartcontainer", 4, "ngIf"], [1, "chartcontainer"], ["chartcontainer", ""], [3, "view", "scheme", "legend", "showXAxisLabel", "showYAxisLabel", "xAxis", "yAxis", "timeline", "results", "legendPosition", "legendTitle"]], template: function ChartComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ChartComponent_div_0_Template, 3, 14, "div", 0);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.haveData);
