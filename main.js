@@ -374,7 +374,6 @@ class MapComponent {
             layers: [
                 leaflet__WEBPACK_IMPORTED_MODULE_1__["tileLayer"]('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                     maxZoom: 18,
-                    attribution: '...',
                 }),
             ],
             zoom: 5,
