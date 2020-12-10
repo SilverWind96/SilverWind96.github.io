@@ -77,6 +77,7 @@ class ChartComponent {
     constructor(chartService) {
         this.chartService = chartService;
         this.init = true;
+        this.haveData = false;
         this.fixedData = [
             {
                 name: 'Confirmed',
@@ -135,6 +136,7 @@ class ChartComponent {
                 this.fixedData[2].series.push({ name: i, value: data[i].recovered });
             }
         }
+        this.haveData = true;
         this.test = [...this.fixedData];
     }
 }
@@ -142,7 +144,7 @@ ChartComponent.ɵfac = function ChartComponent_Factory(t) { return new (t || Cha
 ChartComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ChartComponent, selectors: [["app-chart"]], decls: 1, vars: 1, consts: [["class", "chartcontainer", 4, "ngIf"], [1, "chartcontainer"], ["chartcontainer", ""], [3, "view", "scheme", "legend", "showXAxisLabel", "showYAxisLabel", "xAxis", "yAxis", "timeline", "results", "legendPosition", "legendTitle", "select"]], template: function ChartComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](0, ChartComponent_div_0_Template, 3, 14, "div", 0);
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", !ctx.init);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", ctx.haveData);
     } }, directives: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["NgIf"], _swimlane_ngx_charts__WEBPACK_IMPORTED_MODULE_3__["LineChartComponent"]], styles: [".chartcontainer[_ngcontent-%COMP%] {\n  height: 50vh;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2NoYXJ0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtBQUNGIiwiZmlsZSI6ImNoYXJ0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNoYXJ0Y29udGFpbmVyIHtcbiAgaGVpZ2h0OiA1MHZoO1xufVxuIl19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ChartComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
@@ -369,17 +371,6 @@ class MapComponent {
         this.regionService = regionService;
         this.wwService = wwService;
         this.addressPoints = [];
-        // options = {
-        //   layers: [
-        //     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        //       maxZoom: 18,
-        //       attribution: '',
-        //     }),
-        //   ],
-        //   zoom: 5,
-        //   center: L.latLng(21.0278, 105.8342),
-        //   worldCopyJump: true,
-        // };
         this.options = {
             layers: [
                 leaflet__WEBPACK_IMPORTED_MODULE_1__["tileLayer"]('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -389,12 +380,6 @@ class MapComponent {
             zoom: 5,
             center: leaflet__WEBPACK_IMPORTED_MODULE_1__["latLng"](21.0278, 105.8342),
             worldCopyJump: true,
-        };
-        this.layersControl = {
-            baseLayers: {
-                'Open Street Map': leaflet__WEBPACK_IMPORTED_MODULE_1__["tileLayer"]('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' }),
-                'Open Cycle Map': leaflet__WEBPACK_IMPORTED_MODULE_1__["tileLayer"]('http://{s}.tile.opencyclemap.org/cycle/{z}/{x}/{y}.png', { maxZoom: 18, attribution: '...' }),
-            },
         };
         this.layers = [];
     }
@@ -414,28 +399,19 @@ class MapComponent {
                                     ? 50000
                                     : country.confirmed,
                             color: 'red',
-                            // opacity: 0.5,
                             stroke: false,
                         }));
-                    // this.addressPoints.push([
-                    //   country.location.lat,
-                    //   country.location.lng,
-                    //   country.confirmed,
-                    // ]);
                 });
             });
         }
     }
-    onMapReady(map) {
-        // const heat = (L as any).heatLayer(this.addressPoints).addTo(map);
-    }
 }
 MapComponent.ɵfac = function MapComponent_Factory(t) { return new (t || MapComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_regional_regional_service__WEBPACK_IMPORTED_MODULE_3__["RegionalService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_worldwide_worldwide_service__WEBPACK_IMPORTED_MODULE_4__["WorldwideService"])); };
-MapComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MapComponent, selectors: [["app-map"]], decls: 1, vars: 3, consts: [["leaflet", "", 2, "height", "50vh", 3, "leafletOptions", "leafletLayersControl", "leafletLayers"]], template: function MapComponent_Template(rf, ctx) { if (rf & 1) {
+MapComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MapComponent, selectors: [["app-map"]], decls: 1, vars: 2, consts: [["leaflet", "", 2, "height", "50vh", 3, "leafletOptions", "leafletLayers"]], template: function MapComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 0);
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("leafletOptions", ctx.options)("leafletLayersControl", ctx.layersControl)("leafletLayers", ctx.layers);
-    } }, directives: [_asymmetrik_ngx_leaflet__WEBPACK_IMPORTED_MODULE_5__["LeafletDirective"], _asymmetrik_ngx_leaflet__WEBPACK_IMPORTED_MODULE_5__["LeafletLayersControlDirective"], _asymmetrik_ngx_leaflet__WEBPACK_IMPORTED_MODULE_5__["LeafletLayersDirective"]], styles: ["[_nghost-%COMP%] {\n  widows: 100%;\n}\n\n[_nghost-%COMP%] {\n  box-sizing: border-box;\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL21hcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQUE7QUFDRjs7QUFDQTtFQUNFLHNCQUFBO0VBQ0EsV0FBQTtBQUVGIiwiZmlsZSI6Im1hcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcbiAgd2lkb3dzOiAxMDAlO1xufVxuOmhvc3Qge1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICB3aWR0aDogMTAwJTtcbn1cbiJdfQ== */"] });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("leafletOptions", ctx.options)("leafletLayers", ctx.layers);
+    } }, directives: [_asymmetrik_ngx_leaflet__WEBPACK_IMPORTED_MODULE_5__["LeafletDirective"], _asymmetrik_ngx_leaflet__WEBPACK_IMPORTED_MODULE_5__["LeafletLayersDirective"]], styles: ["[_nghost-%COMP%] {\n  widows: 100%;\n}\n\n[_nghost-%COMP%] {\n  box-sizing: border-box;\n  width: 100%;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL21hcC5jb21wb25lbnQuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFlBQUE7QUFDRjs7QUFDQTtFQUNFLHNCQUFBO0VBQ0EsV0FBQTtBQUVGIiwiZmlsZSI6Im1hcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIjpob3N0IHtcbiAgd2lkb3dzOiAxMDAlO1xufVxuOmhvc3Qge1xuICBib3gtc2l6aW5nOiBib3JkZXItYm94O1xuICB3aWR0aDogMTAwJTtcbn1cbiJdfQ== */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](MapComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
