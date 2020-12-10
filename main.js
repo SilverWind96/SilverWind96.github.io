@@ -57,9 +57,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+const _c0 = function (a0, a1) { return [a0, a1]; };
 class ChartComponent {
     constructor(chartService) {
         this.chartService = chartService;
+        this.init = true;
         this.fixedData = [
             {
                 name: 'Confirmed',
@@ -75,8 +77,8 @@ class ChartComponent {
             },
         ];
         this.test = [];
-        this.view = [550, 350];
         // options
+        this.legendTitle = '';
         this.legend = true;
         this.showLabels = true;
         this.animations = true;
@@ -91,21 +93,16 @@ class ChartComponent {
         };
     }
     change(chosenCountry) {
-        // this.chartService
-        //   .getData(chosenCountry.countrycode.iso2)
-        //   .subscribe((data) => {
-        //     console.log(data);
-        //     let index=data.findIndex((elem)=>{
-        //       return elem.provincestate===chosenCountry.provincestate;
-        //     })
-        //     this.testObject(data[index].timeseries);
-        //   });
-        console.log(chosenCountry.index);
-        this.chartService.getData2().subscribe((data) => {
-            // console.log(index);
-            // console.log(chosenCountry);
-            this.testObject(data[chosenCountry.index].timeseries);
-        });
+        if (this.init) {
+            this.init = false;
+            this.chartService.getData().subscribe((data) => {
+                this.data = [...data];
+                this.testObject(data[chosenCountry.index].timeseries);
+            });
+        }
+        else {
+            this.testObject(this.data[chosenCountry.index].timeseries);
+        }
     }
     ngOnInit() { }
     onSelect(event) { }
@@ -115,28 +112,28 @@ class ChartComponent {
         this.fixedData[2].series.length = 0;
         for (const i in data) {
             if (data.hasOwnProperty(i)) {
-                // if (data[i].confirmed && data[i].deaths && data[i].recovered) {
                 if (data[i].confirmed > -1 && data[i].deaths > -1) {
                     this.fixedData[0].series.push({ name: i, value: data[i].confirmed });
                     this.fixedData[1].series.push({ name: i, value: data[i].deaths });
                 }
                 this.fixedData[2].series.push({ name: i, value: data[i].recovered });
-                // } else if (data[i].recovered && !data[i].confirmed && !data[i].deaths) {
-                //
-                // }
             }
         }
         this.test = [...this.fixedData];
     }
 }
 ChartComponent.ɵfac = function ChartComponent_Factory(t) { return new (t || ChartComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_chart_service__WEBPACK_IMPORTED_MODULE_1__["ChartService"])); };
-ChartComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ChartComponent, selectors: [["app-chart"]], decls: 1, vars: 10, consts: [[3, "view", "scheme", "legend", "showXAxisLabel", "showYAxisLabel", "xAxis", "yAxis", "timeline", "results", "legendPosition", "select"]], template: function ChartComponent_Template(rf, ctx) { if (rf & 1) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "ngx-charts-line-chart", 0);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("select", function ChartComponent_Template_ngx_charts_line_chart_select_0_listener($event) { return ctx.onSelect($event); });
+ChartComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ChartComponent, selectors: [["app-chart"]], decls: 3, vars: 14, consts: [[1, "chartcontainer"], ["chartcontainer", ""], [3, "view", "scheme", "legend", "showXAxisLabel", "showYAxisLabel", "xAxis", "yAxis", "timeline", "results", "legendPosition", "legendTitle", "select"]], template: function ChartComponent_Template(rf, ctx) { if (rf & 1) {
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0, 1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "ngx-charts-line-chart", 2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("select", function ChartComponent_Template_ngx_charts_line_chart_select_2_listener($event) { return ctx.onSelect($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("view", ctx.view)("scheme", ctx.colorScheme)("legend", ctx.legend)("showXAxisLabel", ctx.showXAxisLabel)("showYAxisLabel", ctx.showYAxisLabel)("xAxis", ctx.xAxis)("yAxis", ctx.yAxis)("timeline", ctx.timeline)("results", ctx.test)("legendPosition", ctx.legendPosition);
-    } }, directives: [_swimlane_ngx_charts__WEBPACK_IMPORTED_MODULE_2__["LineChartComponent"]], styles: ["\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJjaGFydC5jb21wb25lbnQuc2NzcyJ9 */"] });
+        const _r0 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵreference"](1);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("view", _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵpureFunction2"](11, _c0, _r0.offsetWidth, _r0.offsetHeight - 32))("scheme", ctx.colorScheme)("legend", ctx.legend)("showXAxisLabel", ctx.showXAxisLabel)("showYAxisLabel", ctx.showYAxisLabel)("xAxis", ctx.xAxis)("yAxis", ctx.yAxis)("timeline", ctx.timeline)("results", ctx.test)("legendPosition", ctx.legendPosition)("legendTitle", ctx.legendTitle);
+    } }, directives: [_swimlane_ngx_charts__WEBPACK_IMPORTED_MODULE_2__["LineChartComponent"]], styles: [".chartcontainer[_ngcontent-%COMP%] {\n  height: 50vh;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi4uLy4uLy4uL2NoYXJ0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBQTtBQUNGIiwiZmlsZSI6ImNoYXJ0LmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNoYXJ0Y29udGFpbmVyIHtcbiAgaGVpZ2h0OiA1MHZoO1xufVxuIl19 */"] });
 /*@__PURE__*/ (function () { _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](ChartComponent, [{
         type: _angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"],
         args: [{
@@ -215,7 +212,7 @@ class AppComponent {
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
-AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 9, vars: 0, consts: [[3, "eventChange"], [1, "container"], [1, "row"], [1, "col-6"], ["chart", ""]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
+AppComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: AppComponent, selectors: [["app-root"]], decls: 9, vars: 0, consts: [[3, "eventChange"], [1, "container"], [1, "row"], [1, "col-12", "col-md-6"], ["chart", ""]], template: function AppComponent_Template(rf, ctx) { if (rf & 1) {
         const _r1 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "app-worldwide");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "app-regional", 0);
@@ -396,27 +393,36 @@ class MapComponent {
         this.wwService.getWorldWideData().subscribe((data) => {
             this.confirmed = data.confirmed;
         });
-        this.regionService.getData().subscribe((data) => {
-            data.forEach((country) => {
-                this.layers.push(leaflet__WEBPACK_IMPORTED_MODULE_1__["circle"]([country.location.lat, country.location.lng], {
-                    radius: 200000,
-                    color: 'red',
-                    opacity: 0.5,
-                }));
-                // this.addressPoints.push([
-                //   country.location.lat,
-                //   country.location.lng,
-                //   country.confirmed,
-                // ]);
+        if (this.regionService.getData()) {
+            this.regionService.getData().subscribe((data) => {
+                let limit = 500000;
+                data.forEach((country) => {
+                    if (country.confirmed)
+                        this.layers.push(leaflet__WEBPACK_IMPORTED_MODULE_1__["circle"]([country.location.lat, country.location.lng], {
+                            radius: country.confirmed > limit
+                                ? limit
+                                : country.confirmed < 50000
+                                    ? 50000
+                                    : country.confirmed,
+                            color: 'red',
+                            // opacity: 0.5,
+                            stroke: false,
+                        }));
+                    // this.addressPoints.push([
+                    //   country.location.lat,
+                    //   country.location.lng,
+                    //   country.confirmed,
+                    // ]);
+                });
             });
-        });
+        }
     }
     onMapReady(map) {
         // const heat = (L as any).heatLayer(this.addressPoints).addTo(map);
     }
 }
 MapComponent.ɵfac = function MapComponent_Factory(t) { return new (t || MapComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_regional_regional_service__WEBPACK_IMPORTED_MODULE_3__["RegionalService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_worldwide_worldwide_service__WEBPACK_IMPORTED_MODULE_4__["WorldwideService"])); };
-MapComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MapComponent, selectors: [["app-map"]], decls: 1, vars: 3, consts: [["leaflet", "", 2, "height", "300px", 3, "leafletOptions", "leafletLayersControl", "leafletLayers"]], template: function MapComponent_Template(rf, ctx) { if (rf & 1) {
+MapComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: MapComponent, selectors: [["app-map"]], decls: 1, vars: 3, consts: [["leaflet", "", 2, "height", "50vh", 3, "leafletOptions", "leafletLayersControl", "leafletLayers"]], template: function MapComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](0, "div", 0);
     } if (rf & 2) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("leafletOptions", ctx.options)("leafletLayersControl", ctx.layersControl)("leafletLayers", ctx.layers);
@@ -463,7 +469,7 @@ class WorldwideComponent {
     }
 }
 WorldwideComponent.ɵfac = function WorldwideComponent_Factory(t) { return new (t || WorldwideComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_worldwide_service__WEBPACK_IMPORTED_MODULE_1__["WorldwideService"])); };
-WorldwideComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: WorldwideComponent, selectors: [["app-worldwide"]], decls: 45, vars: 16, consts: [[1, "container"], [1, "row"], [1, "col-12"], [1, "col-3"], [1, "card", "text-white", "confirmed", "mb-3"], [1, "card-body"], [1, "card-text"], [1, "fas", "fa-user-alt"], [1, "card-title", "m-0"], [1, "card", "text-white", "recovered", "mb-3"], [1, "fas", "fa-plus-square"], [1, "card", "text-white", "deaths", "mb-3"], [1, "fas", "fa-bed"], [1, "card", "text-white", "rate", "mb-3"], [1, "fas", "fa-exclamation-circle"]], template: function WorldwideComponent_Template(rf, ctx) { if (rf & 1) {
+WorldwideComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: WorldwideComponent, selectors: [["app-worldwide"]], decls: 45, vars: 16, consts: [[1, "container", "mt-5"], [1, "row"], [1, "col-12"], [1, "col-12", "col-md-3"], [1, "card", "text-white", "confirmed", "mb-3"], [1, "card-body"], [1, "card-text"], [1, "fas", "fa-user-alt"], [1, "card-title", "m-0"], [1, "card", "text-white", "recovered", "mb-3"], [1, "fas", "fa-plus-square"], [1, "card", "text-white", "deaths", "mb-3"], [1, "fas", "fa-bed"], [1, "card", "text-white", "rate", "mb-3"], [1, "fas", "fa-exclamation-circle"]], template: function WorldwideComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -719,20 +725,18 @@ class RegionalComponent {
             this.chosenCountry['index'] = index;
             data[index]['index'] = index;
             this.eventChange.emit(data[index]);
-            console.log('regional: ' + index);
         });
     }
     setRegion(i) {
         this.chosenCountry = Object.assign({}, this.countryArray[i]);
         this.chosenCountry['index'] = i;
-        console.log('regional: ' + i);
     }
     onChange() {
         this.eventChange.emit(this.chosenCountry);
     }
 }
 RegionalComponent.ɵfac = function RegionalComponent_Factory(t) { return new (t || RegionalComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_regional_service__WEBPACK_IMPORTED_MODULE_1__["RegionalService"])); };
-RegionalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RegionalComponent, selectors: [["app-regional"]], outputs: { eventChange: "eventChange" }, decls: 9, vars: 2, consts: [[1, "container"], [1, "row"], [1, "col-3"], [1, "col-9"], [1, "form-control", 3, "change"], [3, "value", "selected", 4, "ngFor", "ngForOf"], ["class", "row mt-3", 4, "ngIf"], [3, "value", "selected"], [1, "row", "mt-3"], [1, "card", "text-white", "confirmed", "mb-3"], [1, "card-body"], [1, "card-text"], [1, "fas", "fa-user-alt"], [1, "card-title", "m-0"], [1, "card", "text-white", "recovered", "mb-3"], [1, "fas", "fa-plus-square"], [1, "card", "text-white", "deaths", "mb-3"], [1, "fas", "fa-bed"], [1, "card", "text-white", "rate", "mb-3"], [1, "fas", "fa-exclamation-circle"]], template: function RegionalComponent_Template(rf, ctx) { if (rf & 1) {
+RegionalComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: RegionalComponent, selectors: [["app-regional"]], outputs: { eventChange: "eventChange" }, decls: 9, vars: 2, consts: [[1, "container"], [1, "row"], [1, "col-12", "col-md-3"], [1, "col-12", "col-md-9"], [1, "form-control", 3, "change"], [3, "value", "selected", 4, "ngFor", "ngForOf"], ["class", "row mt-3", 4, "ngIf"], [3, "value", "selected"], [1, "row", "mt-3"], [1, "card", "text-white", "confirmed", "mb-3"], [1, "card-body"], [1, "card-text"], [1, "fas", "fa-user-alt"], [1, "card-title", "m-0"], [1, "card", "text-white", "recovered", "mb-3"], [1, "fas", "fa-plus-square"], [1, "card", "text-white", "deaths", "mb-3"], [1, "fas", "fa-bed"], [1, "card", "text-white", "rate", "mb-3"], [1, "fas", "fa-exclamation-circle"]], template: function RegionalComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "div", 2);
@@ -821,11 +825,7 @@ class ChartService {
     constructor(http) {
         this.http = http;
     }
-    getData(iso2) {
-        return this.http.get('https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/timeseries?iso2=' +
-            iso2);
-    }
-    getData2() {
+    getData() {
         return this.http.get('https://master-covid-19-api-laeyoung.endpoint.ainize.ai/jhu-edu/timeseries');
     }
 }
